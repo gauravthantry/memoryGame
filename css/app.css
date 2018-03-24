@@ -1,0 +1,29 @@
+ul{
+	list-style-type: none;
+	margin: 0 auto;
+	text-align: center;
+}
+
+li{
+	columns: 4;
+	vertical-align: top;
+}
+
+.fa-size{
+font-size:70px;
+}
+
+.deck-content{
+	text-align: center;
+}
+
+well{
+	margin-right: 20px;
+	margin-left: 20px;
+	
+
+
+
+
+
+

@@ -1,4 +1,6 @@
-
+body{
+	background-image: url("https://queststore.com.ua/wp-content/uploads/2016/06/black-abstract-wallpaper-1920x1080-wallpaper-3.jpg");
+}
 .container{
 	min-width: 1920px;
 }
@@ -9,6 +11,9 @@ ul{
 }
  h1{
 	 text-align: center;
+ }
+ .header-style{
+	 background-color: rgb(0,0,255);
  }
 li{
 	columns: 4;
@@ -28,11 +33,12 @@ section.playground{
 	
 }
 
-.fa-size{
+.fa-prop{
 font-size:70px;
 text-align: center;
 display: inline-block;
 vertical-align: middle;
+margin-top: 20px;
 }
 
 .deck-content{

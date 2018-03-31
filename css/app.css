@@ -1,11 +1,11 @@
+@media only screen and (max-width: 1370px){ 
 body{
 	background-image: url("https://queststore.com.ua/wp-content/uploads/2016/06/black-abstract-wallpaper-1920x1080-wallpaper-3.jpg");
 }
 
 
-
 .container{
-	width: 1470px;
+	width: 1370px;
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
@@ -21,7 +21,7 @@ ul{
 
 .heading-wrap{
 	padding: 20px 10px 20px 10px;
-	background-color: rgba(0,0,10,0.7);
+	background-color: rgba(0,0,10,0.4);
 }
 
  h1{
@@ -48,8 +48,6 @@ section.playground{
 	margin-left: 28%;
 	margin-right: 28%;
 	text-align: center;
-	
-	
 }
 
 .fa-prop{
@@ -70,6 +68,164 @@ margin-top: 20px;
 	display: inline;
 	margin: 20px 20px 20px 20px;
 	}
+.deck-content{
+	cursor: pointer;
+}
+}
+
+@media only screen and (min-width: 1371px) and (max-width: 1600){
+	body{
+	background-image: url("https://queststore.com.ua/wp-content/uploads/2016/06/black-abstract-wallpaper-1920x1080-wallpaper-3.jpg");
+}
+
+
+
+.container{
+	width: 1500px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 20px;
+}
+
+
+ul{
+	list-style-type: none;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.heading-wrap{
+	padding: 20px 10px 20px 10px;
+	background-color: rgba(0,0,10,0.4);
+}
+
+ h1{
+	 text-align: center;
+
+ }
+ 
+ .heading-style{
+	 color: rgb(140,100,80);
+ }
+ 
+
+li{
+	columns: 4;
+	vertical-align: top;
+}
+
+.stars{
+	text-align: center;
+	font-size: 30px;
+}
+
+section.playground{
+	margin-left: 28%;
+	margin-right: 28%;
+	text-align: center;
+}
+
+.fa-prop{
+font-size:70px;
+text-align: center;
+display: inline-block;
+vertical-align: middle;
+margin-top: 20px;
+}
+
+.deck-content{
+	text-align: center;
+	width: 120px;
+	height: 120px;
+	border: 1px solid;
+	box-sizing: border-box;
+    vertical-align: middle;
+	display: inline;
+	margin: 20px 20px 20px 20px;
+	}
+.deck-content{
+	cursor: pointer;
+}
+}
+
+@media only screen and (min-width: 1601px) and (max-width: 1920px){
+	body{
+	background-image: url("https://queststore.com.ua/wp-content/uploads/2016/06/black-abstract-wallpaper-1920x1080-wallpaper-3.jpg");
+}
+
+
+
+.container{
+	width: 1800px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	margin-top: 20px;
+}
+
+
+ul{
+	list-style-type: none;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.heading-wrap{
+	padding: 20px 10px 20px 10px;
+	background-color: rgba(0,0,10,0.4);
+}
+
+ h1{
+	 text-align: center;
+
+ }
+ 
+ .heading-style{
+	 color: rgb(140,100,80);
+ }
+ 
+
+li{
+	columns: 4;
+	vertical-align: top;
+}
+
+.stars{
+	text-align: center;
+	font-size: 30px;
+}
+
+section.playground{
+	margin-left: 28%;
+	margin-right: 28%;
+	text-align: center;
+}
+
+.fa-prop{
+font-size:70px;
+text-align: center;
+display: inline-block;
+vertical-align: middle;
+margin-top: 20px;
+}
+
+.deck-content{
+	text-align: center;
+	width: 120px;
+	height: 120px;
+	border: 1px solid;
+	box-sizing: border-box;
+    vertical-align: middle;
+	display: inline;
+	margin: 20px 20px 20px 20px;
+	}
+	
+.deck-content{
+	cursor: pointer;
+}
+}
+
 
 
 	

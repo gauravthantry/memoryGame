@@ -26,7 +26,7 @@ $(document).ready(function() {
        },
        assignCards: function() {
          $('.card').each(function(index) {
-           $(this).attr('data-card-value', app.cards[index]);
+           $(this).append(app.cards[index]);
          });
          app.clickHandlers();
        },

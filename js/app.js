@@ -11,12 +11,13 @@
         if (i <=2) { //i should be max 2 because the match is to be done to two elements
             if (i === 1) {      //check if its the first flip
                 $(this).closest(".deck-content").flip(true);
-                cardVal1 = $(this).val();
+                cardVal1 = $(this).next().children().val();
+                console.log(cardVal1);
                 i++;
                 clickCount++;
             } else if ((i === 2) ) {  //checks if its the second flip and the second flip is not the first element again.
                 $(this).closest(".deck-content").flip(true);
-                cardVal2 = $(this).val();
+                cardVal2 = $(this).next().children().val();
                 clickCount++;
                 i++;
             }

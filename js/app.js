@@ -11,7 +11,7 @@
         if (i <=2) { //i should be max 2 because the match is to be done to two elements
             if (i === 1) {      //check if its the first flip
                 $(this).closest(".deck-content").flip(true);
-                cardVal1 = $(this).next().children().val();
+                cardVal1 = $(this).val();
                 console.log(cardVal1);
                 i++;
                 clickCount++;

@@ -1,35 +1,43 @@
-   $(document).ready(function() {
-    $(".deck-content").flip({
-        trigger: 'manual'
-    });
-    var i = 1;
-    var clickCount = 1;
-    var cardVal1 = '';
-    var cardVal2 = '';
+/*
+ * Create a list that holds all of your cards
 
-    $(".front").click(function() {
-        if (i <=2) { //i should be max 2 because the match is to be done to two elements
-            if (i === 1) {      //check if its the first flip
-                $(this).closest(".deck-content").flip(true);
-                cardVal1 = $(this).val();
-                console.log(cardVal1);
-                i++;
-                clickCount++;
-            } else if ((i === 2) ) {  //checks if its the second flip and the second flip is not the first element again.
-                $(this).closest(".deck-content").flip(true);
-                cardVal2 = $(this).next().children().val();
-                clickCount++;
-                i++;
-            }
 
-            if (cardVal1 === cardVal2) {  //checks if both the flips match
-                $(this).parent().prev().remove(); //Trying to remove the flip feature if both the elements match. <--- This is one of the issue. Unable to remove the flip feature.
-            }
-        }
-    });
+/*
+ * Display the cards on the page
+ *   - shuffle the list of cards using the provided "shuffle" method below
+ *   - loop through each card and create its HTML
+ *   - add each card's HTML to the page
+ */
 
-    $(".back").click(function() {  //used to unflip
-        $(this).closest(".deck-content").flip(false);
-        i--;
-    });
-});
+// Shuffle function from http://stackoverflow.com/a/2450976
+$(document).ready(function(){
+    $(".card").click(function(){
+      $(this).addClass("open show");
+    })
+  });
+  function shuffle(array) {
+      var currentIndex = array.length, temporaryValue, randomIndex;
+  
+      while (currentIndex !== 0) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+      }
+  
+      return array;
+  }
+  
+  
+  /*
+   * set up the event listener for a card. If a card is clicked:
+   *  - display the card's symbol (put this functionality in another function that you call from this one)
+   *  - add the card to a *list* of "open" cards (put this functionality in another function that you call from this one)
+   *  - if the list already has another card, check to see if the two cards match
+   *    + if the cards do match, lock the cards in the open position (put this functionality in another function that you call from this one)
+   *    + if the cards do not match, remove the cards from the list and hide the card's symbol (put this functionality in another function that you call from this one)
+   *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
+   *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
+   */
+  

@@ -12,15 +12,30 @@
 // Shuffle function from http://stackoverflow.com/a/2450976
 $(document).ready(function(){
   var click=1;
+  var className1='';
+  var className2='';
     $(".card").click(function(){
       if(click===1)
       {
       $(this).addClass("open show");
-      click++;
+      className1=$(this).children().attr('class');
+      console.log(className1);
+      click+=1;
       }
-      if(click===2)
+      else if(click===2)
       {
+        console.log(click);
         $(this).addClass("open show");
+        className2=$(this).children().attr('class');
+        if(className1===className2)
+        {
+
+        }
+        else if(className1!=className2)
+        {
+          $("ul.deck>li.open").removeClass("open");
+          $("ul.deck>li.show").removeClass("show");
+        }
       }
       click=1;
   });
@@ -38,7 +53,7 @@ $(document).ready(function(){
       return array;
   }
 
-
+});
   /*
    * set up the event listener for a card. If a card is clicked:
    *  - display the card's symbol (put this functionality in another function that you call from this one)

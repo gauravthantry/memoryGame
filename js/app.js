@@ -15,32 +15,30 @@ $(document).ready(function(){
   var className1='';
   var className2='';
     $(".card").click(function(){
-      if(click>2)
-      {
-        click=1;
-      }
-      console.log(click);
-      while(click<=2)
-      {
-      $(this).addClass("open show");
+
       if(click===1)
       {
+        $(this).addClass("open show");
       className1=$(this).children().attr('class');
+      click++;
       }
-      else{
-        className2=$(this).children().attr('class');
-      }
-        if(className1===className2)
-        {
+      else if(click===2){
+        $(this).addClass("open show");
+      className2=$(this).children().attr('class');
+      if(className1===className2)
+      {
 
-        }
-        else if(className1!==className2)
-        {
-          $("ul.deck>li").removeClass("open");
-          $("ul.deck>li").removeClass("show");
-        }
-        click++;
       }
+      else if(className1!==className2)
+      {
+       $("ul.deck>li").removeClass("open");
+        $("ul.deck>li").removeClass("show");
+      }
+      click=1;
+    /*  console.log(click); */
+      }
+
+
   });
   function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;

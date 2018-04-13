@@ -20,26 +20,33 @@ $(document).ready(function(){
       {
         $(this).addClass("open show");
       className1=$(this).children().attr('class');
-      click++;
+      console.log('1st Click');
       }
       else if(click===2){
+        console.log('2nd Click');
         $(this).addClass("open show");
       className2=$(this).children().attr('class');
-      if(className1===className2)
-      {
-
-      }
-      else if(className1!==className2)
+      setTimeout(unflip, 3000);
+    }
+    function unflip(){
+      if(className1!==className2)
       {
        $("ul.deck>li").removeClass("open");
         $("ul.deck>li").removeClass("show");
       }
+    }
+    if(click===1)
+    {
+      click++;
+    }
+    else {
       click=1;
+    }
     /*  console.log(click); */
-      }
-
-
   });
+
+
+
   function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
 

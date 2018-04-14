@@ -12,10 +12,12 @@
 // Shuffle function from http://stackoverflow.com/a/2450976
 $(document).ready(function(){
   var click=1;
+  var totalClicks=0;
   var className1='';
   var className2='';
     $(".card").click(function(){
-
+      totalClicks++;
+      $(".moves").html(totalClicks);
       if(click===1)
       {
         $(this).addClass("open show");
@@ -26,7 +28,7 @@ $(document).ready(function(){
         console.log('2nd Click');
         $(this).addClass("open show");
       className2=$(this).children().attr('class');
-      setTimeout(unflip, 3000);
+      setTimeout(unflip, 2000);
     }
     function unflip(){
       if(className1!==className2)
@@ -45,9 +47,17 @@ $(document).ready(function(){
     /*  console.log(click); */
   });
 
+$(".restart").click(function(){
+  $("ul.deck>li").removeClass("open");
+   $("ul.deck>li").removeClass("show");
+var deck = document.querySelector(".deck");
+for(var i= deck.children.length; i>=0; i--)
+{
+  deck.appendChild(deck.children[Math.random()*i|0]);
+}
+});
 
-
-  function shuffle(array) {
+  /*function shuffle(array) {
       var currentIndex = array.length, temporaryValue, randomIndex;
 
       while (currentIndex !== 0) {
@@ -61,7 +71,7 @@ $(document).ready(function(){
       return array;
   }
 
-});
+}); */
   /*
    * set up the event listener for a card. If a card is clicked:
    *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -72,3 +82,4 @@ $(document).ready(function(){
    *    + increment the move counter and display it on the page (put this functionality in another function that you call from this one)
    *    + if all cards have matched, display a message with the final score (put this functionality in another function that you call from this one)
    */
+});

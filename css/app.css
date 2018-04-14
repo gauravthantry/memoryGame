@@ -107,3 +107,7 @@ h1 {
     float: right;
     cursor: pointer;
 }
+
+.fa.fa-star,.fa.fa-repeat{
+  font-size: 25px;
+}

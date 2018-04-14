@@ -33,6 +33,7 @@ $(document).ready(function() {
             }
         }
         else{
+          click=1;
           $(this).removeClass("open");
           $(this).removeClass("show");
         }
@@ -40,10 +41,11 @@ $(document).ready(function() {
     });
 
     $(".restart").click(function() {
+      $(this).children().addClass('refresh').delay(200).queue(function(next){
+        $(this).removeClass('refresh');
+        next();
+      });
         totalClicks = 0;
-        $(this).children().addClass('refresh').delay(200).queue(function(next){
-          $(this).removeClass('refresh');
-        });
         $(".moves").html(totalClicks);
         $("ul.deck>li").removeClass("open");
         $("ul.deck>li").removeClass("show");

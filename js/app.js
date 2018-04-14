@@ -21,8 +21,10 @@ $(document).ready(function() {
                 if(className1===className2)
                 {
                   match++;
-                  $(this).unbind("click");
+                  secondClick.unbind("click");
                   firstClick.unbind("click");
+                  firstClick.addClass("match");
+                  secondClick.addClass("match");
                 }
                 unflip();
             }

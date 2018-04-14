@@ -1,8 +1,5 @@
 $(document).ready(function() {
-    var click = 1;
-    var totalClicks = 0;
-    var className1 = '';
-    var className2 = '';
+    var click = 1,totalClicks = 0, className1 = '',className2 = '',firstClick='',secondClick='';
     $(".moves").html(totalClicks);
     var deck = document.querySelector(".deck");
     for (var i = deck.children.length; i >= 0; i--) {
@@ -16,13 +13,14 @@ $(document).ready(function() {
                 $(this).addClass("open show");
                 $(this).attr('id', 'card1');
                 className1 = $(this).children().attr('class');
+                firstClick=$(this);
             } else if (click === 2) {
                 $(this).addClass("open show");
                 className2 = $(this).children().attr('class');
                 if(className1===className2)
                 {
                   $(this).unbind("click");
-                  $(this).unbind("click");
+                  firstClick.unbind("click");
                 }
                 unflip();
             }

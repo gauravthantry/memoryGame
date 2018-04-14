@@ -41,6 +41,9 @@ $(document).ready(function() {
 
     $(".restart").click(function() {
         totalClicks = 0;
+        $(this).children().addClass('refresh').delay(200).queue(function(next){
+          $(this).removeClass('refresh');
+        });
         $(".moves").html(totalClicks);
         $("ul.deck>li").removeClass("open");
         $("ul.deck>li").removeClass("show");

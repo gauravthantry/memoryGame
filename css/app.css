@@ -108,6 +108,14 @@ h1 {
     cursor: pointer;
 }
 
-.fa.fa-star,.fa.fa-repeat{
+.fa.fa-star-o{
+  font-size: 28px;
+}
+
+.fa.fa-repeat{
   font-size: 25px;
+}
+
+.refresh{
+  text-shadow:3px 3px 3px #272634;
 }

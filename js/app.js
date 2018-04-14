@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var click = 1,totalClicks = 0, className1 = '',className2 = '',firstClick='',secondClick='';
+    var click = 1,totalClicks = 0, className1 = '',className2 = '',firstClick='',secondClick='',match=0;
     $(".moves").html(totalClicks);
     var deck = document.querySelector(".deck");
     for (var i = deck.children.length; i >= 0; i--) {
@@ -17,8 +17,10 @@ $(document).ready(function() {
             } else if (click === 2) {
                 $(this).addClass("open show");
                 className2 = $(this).children().attr('class');
+                secondClick=$(this);
                 if(className1===className2)
                 {
+                  match++;
                   $(this).unbind("click");
                   firstClick.unbind("click");
                 }
@@ -47,14 +49,21 @@ $(document).ready(function() {
             deck.appendChild(deck.children[Math.random() * i | 0]);
         }
     });
+
+    if(match===8)
+    {
+      /* This is where the 'Congragulations message must be show over the web page' */
+    }
     function unflip() {
         if (className1 !== className2) {
 
             setTimeout(removeClasses, 1000);
 
             function removeClasses() {
-                $("ul.deck>li").removeClass("open");
-                $("ul.deck>li").removeClass("show");
+                firstClick.removeClass("open");
+                firstClick.removeClass("show");
+                secondClick.removeClass("open");
+                secondClick.removeClass("show");
             }
         }
     }

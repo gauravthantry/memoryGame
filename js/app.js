@@ -10,31 +10,40 @@
  */
 
 // Shuffle function from http://stackoverflow.com/a/2450976
+
 $(document).ready(function(){
   var click=1;
   var totalClicks=0;
   var className1='';
   var className2='';
+  var deck = document.querySelector(".deck");
+  for(var i= deck.children.length; i>=0; i--)
+  {
+    deck.appendChild(deck.children[Math.random()*i|0]);
+  }
     $(".card").click(function(){
       totalClicks++;
       $(".moves").html(totalClicks);
       if(click===1)
       {
         $(this).addClass("open show");
+        $(this).attr('id','card1');
       className1=$(this).children().attr('class');
-      console.log('1st Click');
       }
       else if(click===2){
-        console.log('2nd Click');
         $(this).addClass("open show");
       className2=$(this).children().attr('class');
-      setTimeout(unflip, 2000);
+      unflip();
     }
     function unflip(){
       if(className1!==className2)
       {
+
+        setTimeout(removeClasses, 1000);
+        function removeClasses(){
        $("ul.deck>li").removeClass("open");
         $("ul.deck>li").removeClass("show");
+      }
       }
     }
     if(click===1)

@@ -21,10 +21,17 @@ $(document).ready(function() {
                 if(className1===className2)
                 {
                   match++;
+                  console.log(match);
                   secondClick.unbind("click");
                   firstClick.unbind("click");
                   firstClick.addClass("match");
                   secondClick.addClass("match");
+                }
+                if(match===8)
+                {
+                  console.log('match is now 8');
+                  $(".text").html('Yaay!! You\'ve Won!!!!');
+                document.getElementById("overlay").style.display="block";
                 }
                 unflip();
             }
@@ -39,6 +46,7 @@ $(document).ready(function() {
           $(this).removeClass("open");
           $(this).removeClass("show");
         }
+
 
     });
 
@@ -57,11 +65,6 @@ $(document).ready(function() {
             deck.appendChild(deck.children[Math.random() * i | 0]);
         }
     });
-
-    if(match===8)
-    {
-      /* This is where the 'Congragulations message must be show over the web page' */
-    }
     function unflip() {
         if (className1 !== className2) {
             setTimeout(removeClasses, 1000);

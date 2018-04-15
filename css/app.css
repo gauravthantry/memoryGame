@@ -152,3 +152,17 @@ h1 {
   height: 100%;
   width:100%;
 }
+
+.restart-overlay{
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  height: 50%;
+  width: 50%;
+}
+
+.fa.fa-repeat.playagain{
+  font-color: grey;
+  font-size: 35px;
+  text-shadow:3px 3px 3px #272634;
+}

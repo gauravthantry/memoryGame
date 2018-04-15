@@ -1,10 +1,7 @@
 $(document).ready(function() {
     var click = 1,totalClicks = 0, className1 = '',className2 = '',firstClick='',secondClick='',match=0;
+    shuffle();
     $(".moves").html(totalClicks);
-    var deck = document.querySelector(".deck");
-    for (var i = deck.children.length; i >= 0; i--) {
-        deck.appendChild(deck.children[Math.random() * i | 0]);
-    }
     $(".card").click(function() {
         if (!$(this).hasClass("open")) {
             totalClicks++;
@@ -32,7 +29,7 @@ $(document).ready(function() {
                   console.log('match is now 8');
 
                 /*document.getElementById("overlay").style.display="block";*/
-                $("#overlay").hide().css("display","block").fadeIn();
+                $("#overlay").css("display","block");
                 $(".text").hide().html('Yaay!! You\'ve Won!!!!').fadeIn('slow');
 
                 }
@@ -68,6 +65,16 @@ $(document).ready(function() {
             deck.appendChild(deck.children[Math.random() * i | 0]);
         }
     });
+
+    $(".restart-overlay").click(function(){
+      $("#overlay").css("display","none");
+      totalClicks = 0;
+      $(".moves").html(totalClicks);
+      $("ul.deck>li").removeClass("open");
+      $("ul.deck>li").removeClass("show");
+      $("ul.deck>li").removeClass("match");
+      shuffle();
+    });
     function unflip() {
         if (className1 !== className2) {
             setTimeout(removeClasses, 1000);
@@ -79,4 +86,11 @@ $(document).ready(function() {
         secondClick.removeClass("open");
         secondClick.removeClass("show");
     }
+
+    function shuffle(){
+    var deck = document.querySelector(".deck");
+    for (var i = deck.children.length; i >= 0; i--) {
+        deck.appendChild(deck.children[Math.random() * i | 0]);
+    }
+  }
 });

@@ -51,6 +51,7 @@ $(document).ready(function() {
         $(".moves").html(totalClicks);
         $("ul.deck>li").removeClass("open");
         $("ul.deck>li").removeClass("show");
+        $("ul.deck>li").removeClass("match");
         var deck = document.querySelector(".deck");
         for (var i = deck.children.length; i >= 0; i--) {
             deck.appendChild(deck.children[Math.random() * i | 0]);
@@ -63,15 +64,13 @@ $(document).ready(function() {
     }
     function unflip() {
         if (className1 !== className2) {
-
             setTimeout(removeClasses, 1000);
-
-            function removeClasses() {
-                firstClick.removeClass("open");
-                firstClick.removeClass("show");
-                secondClick.removeClass("open");
-                secondClick.removeClass("show");
-            }
         }
+    }
+    function removeClasses() {
+        firstClick.removeClass("open");
+        firstClick.removeClass("show");
+        secondClick.removeClass("open");
+        secondClick.removeClass("show");
     }
 });

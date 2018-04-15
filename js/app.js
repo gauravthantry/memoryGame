@@ -27,11 +27,14 @@ $(document).ready(function() {
                   firstClick.addClass("match");
                   secondClick.addClass("match");
                 }
-                if(match===8)
+                if(match===1)
                 {
                   console.log('match is now 8');
-                  $(".text").html('Yaay!! You\'ve Won!!!!');
-                document.getElementById("overlay").style.display="block";
+
+                /*document.getElementById("overlay").style.display="block";*/
+                $("#overlay").hide().css("display","block").fadeIn();
+                $(".text").hide().html('Yaay!! You\'ve Won!!!!').fadeIn('slow');
+
                 }
                 unflip();
             }

@@ -8,7 +8,7 @@ $(document).ready(function() {
             $(".moves").html(totalClicks);
             if (click === 1) {
                 $(this).addClass("open show");
-                $(this).attr('id', 'card1');
+              /*  $(this).attr('id', 'card1'); */
                 className1 = $(this).children().attr('class');
                 firstClick=$(this);
             } else if (click === 2) {
@@ -67,12 +67,13 @@ $(document).ready(function() {
     });
 
     $(".restart-overlay").click(function(){
+      className1='';
+      className2='';
+      match=0;
       $("#overlay").css("display","none");
       totalClicks = 0;
       $(".moves").html(totalClicks);
-      $("ul.deck>li").removeClass("open");
-      $("ul.deck>li").removeClass("show");
-      $("ul.deck>li").removeClass("match");
+    $("ul.deck>li").removeClass("open show match");
       shuffle();
     });
     function unflip() {

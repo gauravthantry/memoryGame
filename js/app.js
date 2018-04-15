@@ -2,12 +2,17 @@ $(document).ready(function() {
     var click = 1,totalClicks = 0, className1 = '',className2 = '',firstClick='',secondClick='',match=0;
     shuffle();
     $(".moves").html(totalClicks);
-    $(".card").click(function() {
+    $(".card").on('click',function() {
+      if($(this).attr('disabled')=="disabled"){
+        return false;
+      }
+  else{
         if (!$(this).hasClass("open")) {
             totalClicks++;
             $(".moves").html(totalClicks);
             if (click === 1) {
-                $(this).addClass("open show");
+                $(this).addClass("open");
+                $(this).addClass("show");
               /*  $(this).attr('id', 'card1'); */
                 className1 = $(this).children().attr('class');
                 firstClick=$(this);
@@ -18,19 +23,26 @@ $(document).ready(function() {
                 if(className1===className2)
                 {
                   match++;
-                  console.log(match);
-                  secondClick.unbind("click");
-                  firstClick.unbind("click");
+                  secondClick.attr("disabled","disabled");   /* Used to remove click feature from matched cards */
+                  firstClick.attr("disabled","disabled");
                   firstClick.addClass("match");
                   secondClick.addClass("match");
                 }
-                if(match===1)
+                if(match===8)
                 {
-                  console.log('match is now 8');
-
-                /*document.getElementById("overlay").style.display="block";*/
                 $("#overlay").css("display","block");
-                $(".text").hide().html('Yaay!! You\'ve Won!!!!').fadeIn('slow');
+                if(totalClicks<=20&&totalClicks>=16)
+                {
+                $(".text").hide().html('Fantabulous!!You are too quick!!!!').fadeIn('slow');
+                }
+                if(totalClicks<=25&&totalClicks>20)
+                {
+                  $(".text").hide().html('Excellent!!You\'ve got the license to make it rocket speed').fadeIn('slow');
+                }
+                if(totalClicks>25)
+                {
+                  $(".text").hide().html('Good Warm up! Try getting faster').fadeIn('slow');
+                }
 
                 }
                 unflip();
@@ -47,7 +59,7 @@ $(document).ready(function() {
           $(this).removeClass("show");
         }
 
-
+}
     });
 
     $(".restart").click(function() {
@@ -74,7 +86,12 @@ $(document).ready(function() {
       totalClicks = 0;
       $(".moves").html(totalClicks);
     $("ul.deck>li").removeClass("open show match");
-      shuffle();
+    var deck = document.querySelector(".deck");
+    for (var i = deck.children.length; i >= 0; i--) {
+        deck.appendChild(deck.children[Math.random() * i | 0]);
+    $('ul.deck *').removeAttr('disabled'); /*Used to re-enable the cards for cliking after refreshing the deck */
+  }
+
     });
     function unflip() {
         if (className1 !== className2) {

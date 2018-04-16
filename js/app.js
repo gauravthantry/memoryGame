@@ -18,7 +18,6 @@ $(document).ready(function() {
                 if (click === 1) {
                     $(this).addClass("open");
                     $(this).addClass("show");
-                    /*  $(this).attr('id', 'card1'); */
                     className1 = $(this).children().attr('class');
                     firstClick = $(this);
                 } else if (click === 2) {

@@ -164,5 +164,6 @@ h1 {
 .fa.fa-repeat.playagain{
   font-color: grey;
   font-size: 35px;
-  text-shadow:3px 3px 3px #272634;
+  text-shadow:3px 3px 3px #272634
+  display: none;
 }

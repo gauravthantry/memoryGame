@@ -108,8 +108,9 @@ h1 {
     cursor: pointer;
 }
 
-.fa.fa-star-o{
+.fa.fa-star,.fa.fa-star-half{
   font-size: 28px;
+  color: rgb(230,230,0);
 }
 
 .fa.fa-repeat{
@@ -155,10 +156,17 @@ h1 {
 
 .restart-overlay{
   position: absolute;
-  top: 65%;
+  top: 70%;
   left: 50%;
   height: 50%;
   width: 50%;
+}
+
+.rating{
+  position: absolute;
+  text-align: center;
+  top:65%;
+  margin:auto;
 }
 
 .fa.fa-repeat.playagain{

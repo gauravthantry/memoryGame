@@ -34,14 +34,29 @@ $(document).ready(function() {
                     unflipAndRemoveAttr();
                     if (match === 8) {
                         $("#overlay").css("display", "block").hide().fadeIn(500);
-                        if (totalClicks <= 20 && totalClicks >= 16) {
+                        if (totalClicks <= 20 && totalClicks >= 0) {
                             $(".text").hide().html('Fantabulous!!You are too quick!!!!').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>').fadeIn(1000);
                         }
                         if (totalClicks <= 25 && totalClicks > 20) {
                             $(".text").hide().html('Excellent!!You\'ve got the license to make it rocket speed').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half"></i>').fadeIn(1000);
                         }
-                        if (totalClicks > 25) {
+                        if (totalClicks <=30 && totalClicks > 25) {
+                            $(".text").hide().html('You got it right!!!').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i>').fadeIn(1000);
+                        }
+                        if (totalClicks <=35 && totalClicks > 30) {
+                            $(".text").hide().html('Booyeah!!!').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-half"></i>').fadeIn(1000);
+                        }
+                        if (totalClicks <=40 && totalClicks > 35) {
+                            $(".text").hide().html('Finisher!!!').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i>').fadeIn(1000);
+                        }
+                        if ( totalClicks > 40) {
                             $(".text").hide().html('Good Warm up! Try getting faster').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star-half"></i>').fadeIn(1000);
                         }
 
                     }
@@ -86,6 +101,7 @@ $(document).ready(function() {
         totalClicks = 0;
         $(".moves").html(totalClicks);
         $("ul.deck>li").removeClass("open show match");
+        $(".stars").empty();
         var deck = document.querySelector(".deck");
         for (var i = deck.children.length; i >= 0; i--) {
             deck.appendChild(deck.children[Math.random() * i | 0]);
@@ -94,13 +110,16 @@ $(document).ready(function() {
 
     });
 
-
     function unflip(callback) {
         setTimeout(function() {
             if (className1 !== className2) {
                 removeClasses();
                 if (typeof callback == 'function')
                     callback();
+            }
+            else {
+              if (typeof callback == 'function')
+                callback();
             }
         }, 1000);
     }
@@ -110,16 +129,19 @@ $(document).ready(function() {
         $("li:not(.match)").removeAttr('disabled');
     }
 
+
     function unflipAndRemoveAttr() {
         unflip(removeAttribute);
     }
+
 
     function removeClasses() {
         firstClick.removeClass("open");
         firstClick.removeClass("show");
         secondClick.removeClass("open");
         secondClick.removeClass("show");
-    }
+  }
+
 
     function shuffle() {
         var deck = document.querySelector(".deck");

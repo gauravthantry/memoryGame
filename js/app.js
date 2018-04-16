@@ -44,19 +44,19 @@ $(document).ready(function() {
                         }
                         if (totalClicks <=30 && totalClicks > 25) {
                             $(".text").hide().html('You got it right!!!').fadeIn(1000);
-                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i>').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                         }
                         if (totalClicks <=35 && totalClicks > 30) {
                             $(".text").hide().html('Booyeah!!!').fadeIn(1000);
-                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-half"></i>').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                         }
                         if (totalClicks <=40 && totalClicks > 35) {
                             $(".text").hide().html('Finisher!!!').fadeIn(1000);
-                            $(".stars").hide().html('<i class="fa fa-star"></i>').fadeIn(1000);
+                            $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                         }
                         if ( totalClicks > 40) {
                             $(".text").hide().html('Good Warm up! Try getting faster').fadeIn(1000);
-                            $(".stars").hide().html('<i class="fa fa-star-half"></i>').fadeIn(1000);
+                            $(".stars").hide().html('<p>Rating:</p><i class="fa fa-star-half"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                         }
 
                     }

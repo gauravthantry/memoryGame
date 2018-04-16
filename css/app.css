@@ -108,7 +108,7 @@ h1 {
     cursor: pointer;
 }
 
-.fa.fa-star,.fa.fa-star-half,.fa.fa-star-o{
+.fa.fa-star,.fa.fa-star-half-full,.fa.fa-star-o{
   font-size: 28px;
   color: rgb(230,230,0);
 }

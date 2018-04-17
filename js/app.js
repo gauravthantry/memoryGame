@@ -34,7 +34,7 @@ $(document).ready(function() {
                     if (match === 8) {   /* Displays a congradulation message depending on the number of clicks */
                       $(document).scrollTop();
                         $("#overlay").css("display", "block").hide().fadeIn(500);
-                        if (totalClicks <= 20 && totalClicks >= 0) {
+                        if (totalClicks <= 20 && totalClicks >= 16) {
                             $(".text").hide().html('Fantabulous!!You are too quick!!!!').fadeIn(1000);
                             $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>').fadeIn(1000);
                         }

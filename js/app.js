@@ -84,12 +84,13 @@ $(document).ready(function() {
         });
         totalClicks = 0;
         $(".moves").html(totalClicks);
-        $("ul.deck>li").removeClass("open");
-        $("ul.deck>li").removeClass("show");
-        $("ul.deck>li").removeClass("match"); /* remove all open,show and match classes when the cards are shuffled. This unflips all the cards */
+        $("ul.deck>li").removeClass("open show match"); /* remove all open,show and match classes when the cards are shuffled. This unflips all the cards */
+        $(".stars").empty();
         var deck = document.querySelector(".deck");
         for (var i = deck.children.length; i >= 0; i--) {
             deck.appendChild(deck.children[Math.random() * i | 0]);
+            $('ul.deck *').removeAttr('disabled');
+            click = 1;
         }
     });
 

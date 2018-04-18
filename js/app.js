@@ -107,6 +107,7 @@ $(document).ready(function() {
         for (var i = deck.children.length; i >= 0; i--) {
             deck.appendChild(deck.children[Math.random() * i | 0]);
             $('ul.deck *').removeAttr('disabled'); /*Used to re-enable the cards for cliking after refreshing the deck */
+            click =1;
         }
 
     });

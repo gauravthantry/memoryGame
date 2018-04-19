@@ -175,3 +175,10 @@ h1 {
   text-shadow:3px 3px 3px #272634
   display: none;
 }
+
+.starRating{
+  position: absolute;
+  top:75%;
+  left: 49%;
+  font-size: 35px;
+}

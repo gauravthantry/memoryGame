@@ -1,184 +1,198 @@
 html {
-    box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 *,
 *::before,
 *::after {
-    box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 html,
 body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    background: #ffffff url('../img/geometry2.png'); /* Background pattern from Subtle Patterns */
-    font-family: 'Coda', cursive;
+	background: #ffffff url('../img/geometry2.png');
+	/* Background pattern from Subtle Patterns */
+	font-family: 'Coda', cursive;
 }
 
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
 }
 
 h1 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 300;
 }
+
 
 /*
  * Styles for the deck of cards
  */
 
 .deck {
-    width: 660px;
-    min-height: 680px;
-    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
-    padding: 32px;
-    border-radius: 10px;
-    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin: 0 0 3em;
+	width: 660px;
+	min-height: 680px;
+	background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+	padding: 32px;
+	border-radius: 10px;
+	box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 0 3em;
 }
 
 .deck .card {
-    height: 125px;
-    width: 125px;
-    background: #2e3d49;
-    font-size: 0;
-    color: #ffffff;
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+	height: 125px;
+	width: 125px;
+	background: #2e3d49;
+	font-size: 0;
+	color: #ffffff;
+	border-radius: 8px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 }
 
 .deck .card.open {
-    transform: rotateY(0);
-    background: #02b3e4;
-    cursor: default;
+	transform: rotateY(0);
+	background: #02b3e4;
+	cursor: default;
 }
 
 .deck .card.show {
-    font-size: 33px;
+	font-size: 33px;
 }
 
 .deck .card.match {
-    cursor: default;
-    background: #02ccba;
-    font-size: 33px;
+	cursor: default;
+	background: #02ccba;
+	font-size: 33px;
 }
+
 
 /*
  * Styles for the Score Panel
  */
 
 .score-panel {
-    text-align: left;
-    width: 345px;
-    margin-bottom: 10px;
+	text-align: left;
+	width: 345px;
+	margin-bottom: 10px;
 }
 
 .score-panel .stars {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    margin: 0 5px 0 0;
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+	margin: 0 5px 0 0;
 }
 
 .score-panel .stars li {
-    list-style: none;
-    display: inline-block;
+	list-style: none;
+	display: inline-block;
 }
 
 .score-panel .restart {
-    float: right;
-    cursor: pointer;
+	float: right;
+	cursor: pointer;
 }
 
-.fa.fa-star,.fa.fa-star-half-full,.fa.fa-star-o{
-  font-size: 28px;
-  color: rgb(230,230,0);
+.fa.fa-star,
+.fa.fa-star-half-full,
+.fa.fa-star-o {
+	font-size: 28px;
+	color: rgb(230, 230, 0);
 }
 
-.fa.fa-repeat{
-  font-size: 25px;
+.fa.fa-repeat {
+	font-size: 25px;
 }
 
-.refresh{
-  text-shadow:3px 3px 3px #272634;
+.refresh {
+	text-shadow: 3px 3px 3px #272634;
 }
 
 #overlay {
-    position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-    cursor: pointer; /* Add a pointer on hover */
+	position: fixed;
+	/* Sit on top of the page content */
+	display: none;
+	/* Hidden by default */
+	width: 100%;
+	/* Full width (cover the whole page) */
+	height: 100%;
+	/* Full height (cover the whole page) */
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	/* Black background with opacity */
+	z-index: 2;
+	/* Specify a stack order in case you're using a different order for other elements */
+	cursor: pointer;
+	/* Add a pointer on hover */
 }
 
-.text{
-  font-size: 60px;
-  color: yellow;
-  font-family:fantasy;
-  font-style: italic;
-  font-weight: bold;
-  position: absolute;
-      top: 50%;
-      left: 35%;
-      height: 30%;
-      width: 50%;
-
+.text {
+	font-size: 60px;
+	color: yellow;
+	font-family: fantasy;
+	font-style: italic;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	left: 35%;
+	height: 30%;
+	width: 50%;
 }
 
-#overlay{
-  height: 100%;
-  width:100%;
+#overlay {
+	height: 100%;
+	width: 100%;
 }
 
-.restart-overlay{
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  height: 50%;
-  width: 50%;
+.restart-overlay {
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	height: 50%;
+	width: 50%;
 }
 
-.rating{
-  position: absolute;
-  text-align: center;
-  top:65%;
-  margin:auto;
+.rating {
+	position: absolute;
+	text-align: center;
+	top: 65%;
+	margin: auto;
 }
 
-.fa.fa-repeat.playagain{
-  font-color: grey;
-  font-size: 35px;
-  text-shadow:3px 3px 3px #272634
-  display: none;
+.fa.fa-repeat.playagain {
+	font-color: grey;
+	font-size: 35px;
+	text-shadow: 3px 3px 3px #272634 display: none;
 }
 
-.starRating{
-  position: absolute;
-  top:75%;
-  left: 49%;
-  font-size: 35px;
+.starRating {
+	position: absolute;
+	top: 75%;
+	left: 48.5%;
+	font-size: 35px;
+}
+
+.timer {
+	font-size: 28px;
 }

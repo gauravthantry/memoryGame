@@ -14,14 +14,15 @@ $(document).ready(function() {
             return false;
         } else {
             if (!$(this).hasClass("open")) {   /* Loop checks if the card is not an already flipped and matched card */
-                totalClicks++;
-                $(".moves").html(totalClicks);
                 if (click === 1) {
                     $(this).addClass("open");
                     $(this).addClass("show");
                     className1 = $(this).children().attr('class'); /* className1 stores the class name of the card. className1 would contain a font awesome class */
                     firstClick = $(this);
                 } else if (click === 2) {
+                   totalClicks++;
+                   $(".moves").fadeOut(600);
+                   $(".moves").fadeIn(600).html(totalClicks);
                     $('ul.deck *').attr("disabled", "disabled"); /* adding attribute diabled would help in the other cards not being cliked unless the two flipped cards are flipped back. When a user clicks on another card, false is returned refer line 13 */
                     $(this).addClass("open show"); /*Flipd the card once clicked */
                     className2 = $(this).children().attr('class'); /* This is equated to className1 to check if they are equal */
@@ -32,8 +33,8 @@ $(document).ready(function() {
                         secondClick.addClass("match");
                     }
                     unflipAndRemoveAttr();  /* call back function has been used. Other cards are enabled for clicking regardless of the current matching situation of the current cards */
-                    if (match === 1) {   /* Displays a congradulation message depending on the number of clicks */
-                      $(document).scrollTop();
+                    if (match === 8) {   /* Displays a congradulation message depending on the number of clicks */
+                      $(document).scrollTop(0,00);
                         $("#overlay").css("display", "block").hide().fadeIn(500);
                         if (totalClicks <= 20 && totalClicks >= 0) {
                             $(".text").hide().html('Fantabulous!!You are too quick!!!!').fadeIn(1000);

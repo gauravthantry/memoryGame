@@ -36,32 +36,32 @@ $(document).ready(function() {
                     if (match === 8) {   /* Displays a congradulation message depending on the number of clicks */
                       $(document).scrollTop(0,00);
                         $("#overlay").css("display", "block").hide().fadeIn(500);
-                        if (totalClicks <= 20 && totalClicks >= 0) {
+                        if (totalClicks <= 12 && totalClicks >= 8) {
                             $(".text").hide().html('Fantabulous!!You are too quick!!!!').fadeIn(1000);
                             $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>').fadeIn(1000);
                             rating='<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>';
                         }
-                        if (totalClicks <= 25 && totalClicks > 20) {
+                        if (totalClicks <= 16 && totalClicks > 12) {
                             $(".text").hide().html('Excellent!!You\'ve got the license to make it rocket speed').fadeIn(1000);
                             $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-full"></i>').fadeIn(1000);
                             rating = '<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-full"></i>';
                         }
-                        if (totalClicks <=30 && totalClicks > 25) {
+                        if (totalClicks <=20 && totalClicks > 16) {
                             $(".text").hide().html('You got it right!!!').fadeIn(1000);
                             $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                             rating='<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
                         }
-                        if (totalClicks <=35 && totalClicks > 30) {
+                        if (totalClicks <=24 && totalClicks > 20) {
                             $(".text").hide().html('Booyeah!!!').fadeIn(1000);
                             $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                             rating='<i class="fa fa-star"></i><i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i>';
                         }
-                        if (totalClicks <=40 && totalClicks > 35) {
+                        if (totalClicks <=28 && totalClicks > 24) {
                             $(".text").hide().html('Finisher!!!').fadeIn(1000);
                             $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                             rating='<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
                         }
-                        if ( totalClicks > 40) {
+                        if ( totalClicks > 28) {
                             $(".text").hide().html('Good Warm up! Try getting faster').fadeIn(1000);
                             $(".stars").hide().html('<i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
                            rating='<i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';

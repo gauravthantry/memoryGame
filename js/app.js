@@ -15,12 +15,14 @@ $(document).ready(function() {
         } else {
             if (!$(this).hasClass("open")) {   /* Loop checks if the card is not an already flipped and matched card */
                 if (click === 1) {
+                  console.log('1st click');
                     $(this).addClass("open");
                     $(this).addClass("show");
                     className1 = $(this).children().attr('class'); /* className1 stores the class name of the card. className1 would contain a font awesome class */
                     firstClick = $(this);
                 } else if (click === 2) {
                    totalClicks++;
+                   realTimeRating();
                    $(".moves").fadeOut(600);
                    $(".moves").fadeIn(600).html(totalClicks);
                     $('ul.deck *').attr("disabled", "disabled"); /* adding attribute diabled would help in the other cards not being cliked unless the two flipped cards are flipped back. When a user clicks on another card, false is returned refer line 13 */
@@ -159,5 +161,32 @@ $(document).ready(function() {
         for (var i = deck.children.length; i >= 0; i--) {
             deck.appendChild(deck.children[Math.random() * i | 0]);
         }
+    }
+    function realTimeRating()
+    {
+      /*$("#overlay").css("display", "block").hide().fadeIn(500); */
+      if (totalClicks > 12) {
+        if(totalClicks===13)
+          $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-full"></i>').fadeIn(1000);
+          rating='<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-full"></i>';
+      }
+      if (totalClicks > 16) {
+        if(totalClicks===17)
+          $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
+          rating='<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i>';
+      }
+      if (totalClicks > 20) {
+        if(totalClicks===21)
+          $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
+          rating='<i class="fa fa-star"></i><i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i>';
+      }
+      if (totalClicks > 24) {
+          $(".stars").hide().html('<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
+          rating='<i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>'
+      }
+      if ( totalClicks > 28) {
+          $(".stars").hide().html('<i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>').fadeIn(1000);
+          rating='<i class="fa fa-star-half-full"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i>';
+      }
     }
 });

@@ -5,15 +5,34 @@ $(document).ready(function() {
         className2 = '',  /* className1 and className2 is used to check if the flipped cards match refer line 28 and 115 */
         firstClick = '',
         secondClick = '',  /* firstCLick and secondClick: refer line 22,27,30,31 used to add or remove classes only for the recently two flipped cards */
-        match = 0; /*Game finished when match ===8 */
-        rating ='';
+        match = 0, /*Game finished when match ===8 */
+        rating ='',
+        minutesLabel = document.getElementById("minutes"),
+        secondsLabel = document.getElementById("seconds"),
+        totalSeconds = 0;
+setInterval(setTime, 1000);
+
+function setTime() {
+++totalSeconds;
+secondsLabel.innerHTML = pad(totalSeconds % 60);
+minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+}
+
+function pad(val) {
+var valString = val + "";
+if (valString.length < 2) {
+  return "0" + valString;
+} else {
+  return valString;
+}
+}
+
     shuffle();
-    $("#sinceCountdown").countDown({since: startYear, compact: true, format: 'MS', description: ''});
     $(".moves").html(totalClicks);
     $(".card").on('click', function() {
         if ($(this).attr('disabled') == "disabled") {
             return false;
-        } else {  
+        } else {
             if (!$(this).hasClass("open")) {   /* Loop checks if the card is not an already flipped and matched card */
                 if (click === 1) {
                   console.log('1st click');

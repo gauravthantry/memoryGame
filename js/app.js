@@ -8,11 +8,12 @@ $(document).ready(function() {
         match = 0; /*Game finished when match ===8 */
         rating ='';
     shuffle();
+    $("#sinceCountdown").countDown({since: startYear, compact: true, format: 'MS', description: ''});
     $(".moves").html(totalClicks);
     $(".card").on('click', function() {
         if ($(this).attr('disabled') == "disabled") {
             return false;
-        } else {
+        } else {  
             if (!$(this).hasClass("open")) {   /* Loop checks if the card is not an already flipped and matched card */
                 if (click === 1) {
                   console.log('1st click');
@@ -45,12 +46,12 @@ $(document).ready(function() {
                         if (totalClicks <= 16 && totalClicks > 12) {
                             $(".text").hide().html('Excellent!!You\'ve got the license to make it rocket speed').fadeIn(1000);
                             $(".stars").hide().html(rating).fadeIn(1000);
-              
+
                         }
                         if (totalClicks <=20 && totalClicks > 16) {
                             $(".text").hide().html('You got it right!!!').fadeIn(1000);
                             $(".stars").hide().html(rating).fadeIn(1000);
-         
+
                         }
                         if (totalClicks <=24 && totalClicks > 20) {
                             $(".text").hide().html('Booyeah!!!').fadeIn(1000);

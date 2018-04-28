@@ -9,27 +9,17 @@ $(document).ready(function() {
         rating ='',
         minutesLabel = document.getElementById("minutes"),
         secondsLabel = document.getElementById("seconds"),
-        totalSeconds = 0;
-setInterval(setTime, 1000);
-
-function setTime() {
-++totalSeconds;
-secondsLabel.innerHTML = pad(totalSeconds % 60);
-minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
-}
-
-function pad(val) {
-var valString = val + "";
-if (valString.length < 2) {
-  return "0" + valString;
-} else {
-  return valString;
-}
-}
+        totalSeconds=0,
+        startClick=0;
 
     shuffle();
     $(".moves").html(totalClicks);
     $(".card").on('click', function() {
+      if(startClick===0)
+      {
+        setInterval(setTime, 1000);
+      }
+      startClick=1;
         if ($(this).attr('disabled') == "disabled") {
             return false;
         } else {
@@ -138,6 +128,21 @@ if (valString.length < 2) {
         }
 
     });
+
+    function setTime() {
+    ++totalSeconds;
+    secondsLabel.innerHTML = pad(totalSeconds % 60);
+    minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
+    }
+
+    function pad(val) {
+    var valString = val + "";
+    if (valString.length < 2) {
+      return "0" + valString;
+    } else {
+      return valString;
+    }
+    }
 
     function unflip(callback) {
         setTimeout(function() {

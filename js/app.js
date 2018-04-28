@@ -10,22 +10,23 @@ $(document).ready(function() {
         minutesLabel = document.getElementById("minutes"),
         secondsLabel = document.getElementById("seconds"),
         totalSeconds=0,
-        startClick=0;
+        startClick=0,
+        intervalId=null;
 
     shuffle();
     $(".moves").html(totalClicks);
     $(".card").on('click', function() {
-      if(startClick===0)
+      if(intervalId == null)
       {
-        setInterval(setTime, 1000);
+        console.log('interval id is'+intervalId);
+        intervalId=setInterval(setTime, 1000);
       }
-      startClick=1;
+
         if ($(this).attr('disabled') == "disabled") {
             return false;
         } else {
             if (!$(this).hasClass("open")) {   /* Loop checks if the card is not an already flipped and matched card */
                 if (click === 1) {
-                  console.log('1st click');
                     $(this).addClass("open");
                     $(this).addClass("show");
                     className1 = $(this).children().attr('class'); /* className1 stores the class name of the card. className1 would contain a font awesome class */
@@ -41,11 +42,14 @@ $(document).ready(function() {
                     secondClick = $(this);
                     if (className1 === className2) {
                         match++; /* match is incremented if the flipped cards match  */
+
                         firstClick.addClass("match");
                         secondClick.addClass("match");
                     }
                     unflipAndRemoveAttr();  /* call back function has been used. Other cards are enabled for clicking regardless of the current matching situation of the current cards */
                     if (match === 8) {   /* Displays a congradulation message depending on the number of clicks */
+                      clearInterval(intervalId);
+                      intervalId=null;
                       $(document).scrollTop(0,00);
                         $("#overlay").css("display", "block").hide().fadeIn(500);
                         if (totalClicks <= 12 && totalClicks >= 8) {
@@ -95,14 +99,18 @@ $(document).ready(function() {
     });
 
     $(".restart").click(function() {  /* Used to reshuffle the cards */
+
         $(this).children().addClass('refresh').delay(200).queue(function(next) {
             $(this).removeClass('refresh');
             next();
         });
         totalClicks = 0;
-        $(".moves").html(totalClicks);
+        startClick = 0;
+        intervalId=null;
         $("ul.deck>li").removeClass("open show match"); /* remove all open,show and match classes when the cards are shuffled. This unflips all the cards */
-        $(".stars").empty();
+        $('.time').html('<label id="minutes">00</label>:<label id="seconds">00</label>');
+        $(".moves").html(totalClicks);
+        $("ul.stars").html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star">');
         var deck = document.querySelector(".deck");
         for (var i = deck.children.length; i >= 0; i--) {
             deck.appendChild(deck.children[Math.random() * i | 0]);

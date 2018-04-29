@@ -14,16 +14,15 @@ $(document).ready(function() {
         minutesLabel = document.getElementById("minutes"),
         secondsLabel = document.getElementById("seconds"),
         totalSeconds = 0,
-        startClick = 0,
-        intervalId = null;
+        intervalId = null,
+        timeTaken = '';
 
     shuffle();
     $(".moves").html(totalClicks);
     $(".card").on('click', function() {
 
-        if (intervalId == null) {
-            timer();
-        } else if ($(".restart").data('clicked')) {
+        if ((intervalId == null) || ($(".restart").data('clicked'))) {
+            $(".restart").data('clicked', false);
             totalSeconds = 0;
             timer();
         }
@@ -53,6 +52,7 @@ $(document).ready(function() {
                     unflipAndRemoveAttr(); /* call back function has been used. Other cards are enabled for clicking regardless of the current matching situation of the current cards */
                     if (match === 8) { /* Displays a congradulation message depending on the number of clicks */
                         clearInterval(intervalId);
+                        timeTaken = $(".time").html();
                         intervalId = null;
                         $(document).scrollTop(0, 00);
                         $("#overlay").css("display", "block").hide().fadeIn(500);
@@ -84,6 +84,7 @@ $(document).ready(function() {
                         }
 
                     }
+                    $("section.elapsedTime").hide().html('time taken : ' + timeTaken).fadeIn(700);
                     $(".playagain").css("display", "block").fadeIn(1500);
                     $(".starRating").hide().html(rating).fadeIn(500);
 
@@ -107,14 +108,12 @@ $(document).ready(function() {
             $(this).removeClass('refresh');
             next();
         });
-        $(this).data('clicked', true);
-        totalClicks = 0;
-        startClick = 0;
         $("ul.deck>li").removeClass("open show match"); /* remove all open,show and match classes when the cards are shuffled. This unflips all the cards */
         clearInterval(intervalId);
+        $(this).data('clicked', true);
         secondsLabel.innerHTML = pad(0);
         minutesLabel.innerHTML = pad(0);
-
+        totalClicks = 0;
         $(".moves").html(totalClicks);
         $("ul.stars").html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star">');
         var deck = document.querySelector(".deck");
@@ -130,10 +129,14 @@ $(document).ready(function() {
         className2 = '';
         match = 0;
         $("#overlay").css("display", "none");
+        clearInterval(intervalId);
+        $(this).data('clicked', true);
+        secondsLabel.innerHTML = pad(0);
+        minutesLabel.innerHTML = pad(0);
         totalClicks = 0;
         $(".moves").html(totalClicks);
+        $("ul.stars").html('<i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star">');
         $("ul.deck>li").removeClass("open show match");
-        $(".stars").empty();
         var deck = document.querySelector(".deck");
         for (var i = deck.children.length; i >= 0; i--) {
             deck.appendChild(deck.children[Math.random() * i | 0]);

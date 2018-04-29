@@ -33,8 +33,6 @@ h1 {
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 300;
 }
-
-
 /*
  * Styles for the deck of cards
  */
@@ -126,15 +124,13 @@ h1 {
 	text-shadow: 3px 3px 3px #272634;
 }
 
+	/* Sit on top of the page content */
+	/* Hidden by default */
 #overlay {
 	position: fixed;
-	/* Sit on top of the page content */
 	display: none;
-	/* Hidden by default */
 	width: 100%;
-	/* Full width (cover the whole page) */
 	height: 100%;
-	/* Full height (cover the whole page) */
 	top: 0;
 	left: 0;
 	right: 0;
@@ -148,36 +144,31 @@ h1 {
 }
 
 .text {
-	font-size: 60px;
+	position: absolute;
+	font-size: 50px;
 	color: yellow;
 	font-family: fantasy;
 	font-style: italic;
 	font-weight: bold;
-	position: absolute;
 	top: 50%;
-	left: 35%;
-	height: 30%;
-	width: 50%;
-}
-
-#overlay {
-	height: 100%;
 	width: 100%;
-}
-
-.restart-overlay {
-	position: absolute;
-	top: 70%;
-	left: 50%;
-	height: 50%;
-	width: 50%;
-}
-
-.rating {
-	position: absolute;
 	text-align: center;
+}
+
+.elapsedTime{
+	position: absolute;
+	top: 60%;
+	width: 100%;
+	text-align: center;
+	font-size: 20px;
+}
+
+.starRating {
+	position: absolute;
 	top: 65%;
-	margin: auto;
+	width: 100%;
+	text-align: center;
+	font-size: 35px;
 }
 
 .fa.fa-repeat.playagain {
@@ -186,12 +177,16 @@ h1 {
 	text-shadow: 3px 3px 3px #272634 display: none;
 }
 
-.starRating {
+
+
+.restart-overlay {
 	position: absolute;
-	top: 75%;
-	left: 48.5%;
-	font-size: 35px;
+	top: 80%;
+  width: 100%;
+	text-align: center;
+
 }
+
 
 
 .time{

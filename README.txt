@@ -13,6 +13,15 @@ Timer:
 Rating:
  The star rating depends on the number of moves that the player takes. unflipping two cards is one move in the game. The lesser the moves, the better the ratings will be.
  
+ The star ratings are:
+   
+     3 star   => moves less than 12
+     2.5 star => moves grater than 12 and less than 16
+     2 star   => moves greater than 16 and less than 20
+     1.5 star => moves greater than 20 and less than 24
+     1 star   => moves greater than 24 and less than 28
+     0.5 star => moves greater than 28
+ 
  Game completion:
    A player must match all the cards to complete the game. The player can also decide to replay the game by clikcing the refresh button on the overlay screen that appears when a play is over.
    

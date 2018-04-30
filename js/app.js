@@ -4,10 +4,10 @@ $(document).ready(function() {
         /*Keeps track of the total cliks made to finish the game */
         className1 = '',
         className2 = '',
-        /* className1 and className2 is used to check if the flipped cards match refer line 28 and 115 */
+        /* className1 and className2 is used to check if the flipped cards match refer line 33 and  47*/
         firstClick = '',
         secondClick = '',
-        /* firstCLick and secondClick: refer line 22,27,30,31 used to add or remove classes only for the recently two flipped cards */
+        /* firstCLick and secondClick: refer line 37,46 used to add or remove classes only for the recently two flipped cards */
         match = 0,
         /*Game finished when match ===8 */
         rating = '',
@@ -24,7 +24,7 @@ $(document).ready(function() {
         if ((intervalId == null) || ($(".restart").data('clicked'))) {
             $(".restart").data('clicked', false);
             totalSeconds = 0;
-            timer();
+            timer(); /*This displays the timer */
         }
         if ($(this).attr('disabled') == "disabled") {
             return false;
@@ -147,10 +147,10 @@ $(document).ready(function() {
     });
 
     function timer() {
-        intervalId = setInterval(setTime, 1000);
+        intervalId = setInterval(setTime, 1000); /*Interval. every second. */
     }
 
-    function setTime() {
+    function setTime() {   /*This function prints the second and minutes elapsed */
         ++totalSeconds;
         secondsLabel.innerHTML = pad(totalSeconds % 60);
         minutesLabel.innerHTML = pad(parseInt(totalSeconds / 60));
